@@ -4,6 +4,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import {Input, Button} from "react-native-elements";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {useNavigation} from "@react-navigation/native";
+import {FirebaseError} from "firebase/app";
 
 export const SignInScreen: React.FC = () => {
   const auth = getAuth();
@@ -25,10 +26,10 @@ export const SignInScreen: React.FC = () => {
 
     try {
       await signInWithEmailAndPassword(auth, value.email, value.password);
-    } catch (error: any) {
+    } catch (error) {
       setValue({
         ...value,
-        error: error?.message || "",
+        error: error instanceof FirebaseError ? error.message : "unkown error",
       });
     }
   };

@@ -4,6 +4,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import {Input, Button} from "react-native-elements";
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import {useNavigation} from "@react-navigation/native";
+import {FirebaseError} from "firebase/app";
 
 export const SignUpScreen: React.FC = () => {
   const auth = getAuth();
@@ -28,10 +29,10 @@ export const SignUpScreen: React.FC = () => {
     try {
       await createUserWithEmailAndPassword(auth, value.email, value.password);
       navigation.navigate("Sign In" as never);
-    } catch (error: any) {
+    } catch (error) {
       setValue({
         ...value,
-        error: error?.message || "",
+        error: error instanceof FirebaseError ? error.message : "unkown error",
       });
     }
   };
