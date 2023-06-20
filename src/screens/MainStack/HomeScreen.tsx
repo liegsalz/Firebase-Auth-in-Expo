@@ -1,11 +1,11 @@
 import React from "react";
-import {StyleSheet, Text, View} from "react-native";
-import {Button} from "react-native-elements";
-import {useAuthentication} from "../../utils/hooks/useFirebaseAuth";
-import {getAuth, signOut} from "firebase/auth";
+import { StyleSheet, Text, View } from "react-native";
+import { Button } from "react-native-elements";
+import { useAuthentication } from "../../utils/hooks/useFirebaseAuth";
+import { getAuth, signOut } from "firebase/auth";
 
 export const HomeScreen = () => {
-  const {user} = useAuthentication();
+  const { user } = useAuthentication();
 
   const auth = getAuth();
 

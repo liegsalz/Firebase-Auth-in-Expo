@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 
 const auth = getAuth();
 
@@ -21,6 +21,6 @@ export const useAuthentication = () => {
   }, []);
 
   return {
-    user
+    user,
   };
-}
+};

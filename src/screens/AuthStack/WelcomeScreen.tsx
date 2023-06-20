@@ -1,6 +1,6 @@
 import React from "react";
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {useNavigation} from "@react-navigation/native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export const WelcomeScreen: React.FC = () => {
   const navigation = useNavigation();

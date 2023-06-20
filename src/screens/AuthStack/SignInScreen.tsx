@@ -1,10 +1,8 @@
-import React, {useState} from "react";
-import {StyleSheet, Text, TextInput, View} from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
-import {Input, Button} from "react-native-elements";
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {useNavigation} from "@react-navigation/native";
-import {FirebaseError} from "firebase/app";
+import React, { useState } from "react";
+import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Button } from "react-native-elements";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
 
 export const SignInScreen: React.FC = () => {
   const auth = getAuth();
@@ -48,13 +46,13 @@ export const SignInScreen: React.FC = () => {
         <TextInput
           placeholder="Email"
           value={value.email}
-          onChangeText={(text) => setValue({...value, email: text})}
+          onChangeText={(text) => setValue({ ...value, email: text })}
         />
 
         <TextInput
           placeholder="Password"
           value={value.password}
-          onChangeText={(text) => setValue({...value, password: text})}
+          onChangeText={(text) => setValue({ ...value, password: text })}
           secureTextEntry={true}
         />
         <Button title="Sign in" buttonStyle={styles.control} onPress={signUp} />
